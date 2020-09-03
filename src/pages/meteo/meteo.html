@@ -1,0 +1,40 @@
+<!--
+  Generated template for the MeteoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="danger">
+    <button  ion-button="" menuToggle="">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Meteo</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form #f="ngForm" (ngSubmit)="onGetMeteo(f.value)">
+    <ion-item>
+      <ion-label floating>Ville</ion-label>
+      <ion-input name="ville" type="text" ngModel required></ion-input>
+    </ion-item>
+    
+    <button  ion-button large full round color="danger" type="submit" [disabled]="!f.valid">
+      Charger 
+    </button>
+  </form>
+  <ion-list *ngIf="meteo">
+    <ion-item *ngFor="let meteo of meteo.list">
+      <ion-avatar item-start="">
+        <img src="assets/imgs/{{meteo.weather[0].main}}.png" alt="">
+      </ion-avatar>
+      <h2>Date : <strong>{{meteo.dt*1000 | date:'dd/MM-HH:mm:'}}</strong> </h2>
+      <p>Temp : <strong>{{meteo.main.temp-273.15  }}°C</strong> </p>
+      <p>Pression : <strong>{{meteo.main.pressure}}</strong> </p>
+      <p>Humidité : <strong>{{meteo.main.humidity}}</strong> </p>
+    </ion-item>
+  </ion-list>
+
+
+</ion-content>

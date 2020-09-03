@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar color="danger">
+      
+    <ion-title>Home</ion-title>
+    <button ion-button="" menuToggle="">
+        <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar> 
+</ion-header>
+
+
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-header color="danger">Contacts</ion-card-header>
+      <ion-item>
+          <ion-avatar item-start>
+            <img src="{{contact.photo}}">
+          </ion-avatar>
+          <h2>{{contact.nom}}</h2>
+          <p>{{contact.date}}</p>
+          <p>{{contact.email}}</p>
+        </ion-item>
+    <ion-card-content>
+        <p>Informations:<strong>{{contact.lorem}}</strong></p>
+        <img src="{{contact.photo}}"/>
+    </ion-card-content>
+  </ion-card>
+  
+</ion-content>
